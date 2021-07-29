@@ -1,4 +1,4 @@
-from requests_html import HTML
+from requests_html import HTML, HTMLSession
 
 
 # session = HTMLSession()
