@@ -1,5 +1,5 @@
-from requests_html import HTML, HTMLSession
-import csv
+from requests_html import HTML
+
 
 # session = HTMLSession()
 # response = session.get('https://fouadben.herokuapp.com/')
