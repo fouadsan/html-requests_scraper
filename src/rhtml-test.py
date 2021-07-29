@@ -1,26 +1,17 @@
 from requests_html import HTML, HTMLSession
 import csv
 
-with open('scraped.csv', 'w') as csv_file:
-    csv_writer = csv.writer(csv_file)
-    csv_writer.writerow(['title', 'description', 'image'])
+# session = HTMLSession()
+# response = session.get('https://fouadben.herokuapp.com/')
 
-    session = HTMLSession()
-    response = session.get('https://fouadben.herokuapp.com/')
+# for link in response.html.links: # or absolute_links
+#     print(link)
 
-    services = response.html.find('div.service-item')
 
-    for service in services:
+with open('test.html') as html_file:
+    source = html_file.read()
+    html = HTML(html=source)
+    html.render()
 
-        title = service.find('h4', first=True).text
-
-        description = service.find('p', first=True).text
-
-        image_src = service.find('img', first=True).attrs['src']
-
-        print(title)
-        print(description)
-        print(image_src)
-        print()
-
-        csv_writer.writerow([title, description, image_src])
+match = html.find('footer', first=True)
+print(match.html)
